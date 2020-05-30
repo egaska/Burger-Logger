@@ -4,24 +4,21 @@ var orm = require("../config/orm.js");
 var burgers = {
   all: function (cb) {
     orm.all("burgers", function (res) {
-        console.log("Checking all in burger.js")
+        // console.log("Checking all in burger.js")
       cb(res);
     });
   },
-  create: function (name, cb) {
-    orm.create("burgers", ["burger_name", "devoured"], [name, false], cb);
-  },
-  function(id, cb) {
-    var condition = "id=" + id;
-    orm.update(
-      "burgers",
-      {
-        devoured: true,
-      },
-      condition,
-      cb
-    );
-  }
+  create: function(cols, vals, cb) {
+    orm.create("burgers", cols, vals, function(res) {
+        cb(res);
+    });
+   
+},
+  update: function(objColVals, condition, cb) {
+    orm.update("burgers", objColVals, condition, function(result) {
+        cb(result);
+    });
+}
 };
 
 // Export the database functions for the controller.
