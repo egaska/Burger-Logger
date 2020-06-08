@@ -8,6 +8,7 @@ var PORT = process.env.PORT || 8080;
 
 // Static content for the app from the "public" directory in the app directory.
 app.use(express.static("public")); 
+app.use(express.static('public/assets/images')); 
 // Set up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true}));
 app.use(express.json());

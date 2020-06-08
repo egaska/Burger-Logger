@@ -1,34 +1,36 @@
-<h1>Burgers</h1>
+<div class="center">
+  <header class="innerCenter">
+    <h1>Burger Time!</h1>
+    <img src="freeburger.png" alt="Eat Da Burger">
+  </header>
+  <h2>Add A Burger</h2>
+  <form class="create-form">
+    <div class="form-group">
+      <label for="bu">What burger would you like to order?</label><br>
+      <input type="text" id="burgerId" name="burger_name">
+      <button type="submit">Order up!</button>
+    </div>
+  </form>
 
-<h2>Add A Burger</h2>
-<form class="create-form">
 
-  <div class="form-group">
-    <label for="bu">What burger would you like to order?</label>
-    <input type="text" id="burgerId" name="burger_name">
-  </div>
+  <h2>Past Orders:</h2>
 
-  <button type="submit">Order up!</button>
-</form>
-
-
-<h2>Past Orders:</h2>
-
-<ul>
-  {{#each burgers}}
+  <ul>
+    {{#each burgers}}
     {{#unless devoured}}
-      {{> burgers/burger-block devoured = 1}}
+    {{> burgers/burger-block devoured = 1}}
     {{/unless}}
-  {{/each}}
-</ul>
+    {{/each}}
+  </ul>
 
-<h2>Orders Ready To Eat: </h2>
+  <h2>Orders Ready To Eat: </h2>
 
-<ul>
-  {{#each burgers}}
+  <ul>
+    {{#each burgers}}
     {{#if devoured}}
-      {{> burgers/burger-block devoured = 0}}
+    {{> burgers/burger-block devoured = 0}}
     {{/if}}
-  {{/each}}
-</ul>
+    {{/each}}
+  </ul>
 
+</div>
